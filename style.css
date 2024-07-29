@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.progress-container {
+.container {
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -70,7 +70,9 @@ body {
     border-radius: 5px;
     font-size: 16px;
 }
-#prev {
+#prev
+
+{
     background-color: #000000;
     color: white;
     border: none;
