@@ -1,30 +1,30 @@
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
+const prevs = document.getElementById('prev');
+const nextb = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
-let currentActive = 0;
+let c= 0;
 
-nextButton.addEventListener('click', () => {
-    currentActive++;
-    if (currentActive > circles.length - 1) {
-        currentActive = 0;
+nextb.addEventListener('click', () => {
+    c+=1;
+    if (c > circles.length - 1) {
+        c = 0;
     }
     update();
 });
 
-prevButton.addEventListener('click', () => {
-    currentActive--;
-    if (currentActive < 0) {
-        currentActive = circles.length - 1;
+prevs.addEventListener('click', () => {
+    c--;
+    if (c < 0) {
+        c = circles.length - 1;
     }
     update();
 });
 
 function update() {
-    circles.forEach((circle, idx) => {
-        if (idx < currentActive) {
+    circles.forEach((circle, i) => {
+        if (i < c) {
             circle.classList.add('completed');
             circle.classList.remove('active');
-        } else if (idx === currentActive) {
+        } else if (i === c) {
             circle.classList.add('active');
             circle.classList.remove('completed');
         } else {
@@ -33,15 +33,15 @@ function update() {
         }
     });
 
-    if (currentActive === 0) {
-        prevButton.disabled = true;
+    if (c === 0) {
+        prevs.disabled = true;
     } else {
-        prevButton.disabled = false;
+        prevs.disabled = false;
     }
 
-    if (currentActive === circles.length - 1) {
-        nextButton.textContent = 'Restart';
+    if (c === circles.length - 1) {
+        nextb.textContent = 'Restart';
     } else {
-        nextButton.textContent = 'Next';
+        nextb.textContent = 'Next';
     }
 }
